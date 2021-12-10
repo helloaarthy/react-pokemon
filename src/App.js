@@ -46,6 +46,7 @@ export default function App() {
       'fire',
       'water',
       'poison',
+      'ice',
     ];
     let result = 'The result is ';
     const pokemonType1 =
