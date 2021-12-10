@@ -11,7 +11,6 @@ export default function App() {
   }, []);
 
   const random = Math.floor(Math.random() * 151);
-  console.log(random);
 
   const fetchPokemon = () => {
     axios
