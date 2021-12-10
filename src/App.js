@@ -10,7 +10,7 @@ export default function App() {
     fetchPokemon();
   }, []);
 
-  const random = Math.floor(Math.random() * 151);
+  const random = Math.floor(Math.random() * 721);
 
   const fetchPokemon = () => {
     axios
