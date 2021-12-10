@@ -1,0 +1,22 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.text {
+  text-align: center;
+}
+
+#pokemonImg {
+  border: 1px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#clickMe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
