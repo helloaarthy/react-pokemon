@@ -38,22 +38,29 @@ export default function App() {
   };
 
   const battlePokemon = () => {
-    const winners = ['dragon', 'steel', 'electric', 'fighting', 'poison'];
-    const result = document.querySelectorAll('#result')[0].innerHTML;
+    const winners = [
+      'dragon',
+      'steel',
+      'electric',
+      'fighting',
+      'fire',
+      'poison',
+    ];
+    let result = 'The result is ';
     const pokemon1 =
-      document.querySelectorAll('.pokemonTypeName1')[0].innerHTML;
+      document.querySelectorAll('.pokemonTypeName1')[0].innerText;
     const pokemon2 =
-      document.querySelectorAll('.pokemonTypeName2')[0].innerHTML;
-    if (winners.includes(pokemon1 || pokemon2)) {
-      result.concat(`A tie!`);
+      document.querySelectorAll('.pokemonTypeName2')[0].innerText;
+    if (winners.includes(pokemon1) && winners.includes(pokemon2)) {
+      result = result.concat(`a tie!`);
     } else if (winners.includes(pokemon1)) {
-      result.concat(`${pokemon1}`);
+      result = result.concat(`${pokemon1}`);
     } else if (winners.includes(pokemon2)) {
-      result.concat(`${pokemon2}`);
+      result = result.concat(`${pokemon2}`);
     } else {
-      result.concat(`Both lose!`);
+      result = result.concat(`both lose!`);
     }
-    console.log(result);
+    document.querySelectorAll('#result')[0].innerHTML = result;
   };
 
   return (
@@ -92,7 +99,7 @@ export default function App() {
           <button id="battle" onClick={battlePokemon}>
             Battle!
           </button>
-          <span id="result"> The result is </span>
+          <span id="result"> </span>
         </div>
       </div>
     </div>
