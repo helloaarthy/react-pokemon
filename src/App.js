@@ -8,7 +8,6 @@ export default function App() {
 
   useEffect(() => {
     fetchPokemon();
-    fetchPokemonType();
   }, []);
 
   const random = Math.floor(Math.random() * 151);
@@ -19,20 +18,13 @@ export default function App() {
       .get('https://pokeapi.co/api/v2/pokemon/' + random)
       .then((response) => {
         setPokemon(response.data);
-      });
-  };
-
-  const fetchPokemonType = () => {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon/' + random)
-      .then((response) => {
         setPokemonType(response.data.types[0].type);
       });
   };
 
   return (
     <div>
-      <div className="container">
+      <div className={`background-${pokemonType.name}`}>
         <p className="text">
           Here is your pokemon{' '}
           <em>
@@ -46,13 +38,9 @@ export default function App() {
           height="300"
         />
         <span id="ability"> {pokemonType.name} </span>
-        <button id="clickMe" onClick={(fetchPokemon, fetchPokemonType)}>
+        <button id="clickMe" onClick={fetchPokemon}>
           Click Me!
         </button>
-        <img
-          id="typeGif"
-          src={`https://play.pokemonshowdown.com/sprites/xyani/${pokemon.name}.gif`}
-        ></img>
       </div>
     </div>
   );
