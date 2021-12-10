@@ -1,6 +1,6 @@
 h1,
 p {
-  font-family: Lato;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .text {
@@ -45,6 +45,12 @@ p {
   margin-right: auto;
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+#result {
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #pokemonType1 {

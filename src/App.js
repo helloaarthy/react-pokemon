@@ -44,19 +44,24 @@ export default function App() {
       'electric',
       'fighting',
       'fire',
+      'water',
       'poison',
     ];
     let result = 'The result is ';
-    const pokemon1 =
+    const pokemonType1 =
       document.querySelectorAll('.pokemonTypeName1')[0].innerText;
-    const pokemon2 =
+    const pokemonType2 =
       document.querySelectorAll('.pokemonTypeName2')[0].innerText;
-    if (winners.includes(pokemon1) && winners.includes(pokemon2)) {
+    const pokemonName1 =
+      document.querySelectorAll('.pokemonName1')[0].innerText;
+    const pokemonName2 =
+      document.querySelectorAll('.pokemonName2')[0].innerText;
+    if (winners.includes(pokemonType1) && winners.includes(pokemonType2)) {
       result = result.concat(`a tie!`);
-    } else if (winners.includes(pokemon1)) {
-      result = result.concat(`${pokemon1}`);
-    } else if (winners.includes(pokemon2)) {
-      result = result.concat(`${pokemon2}`);
+    } else if (winners.includes(pokemonType1)) {
+      result = result.concat(`${pokemonName1}`);
+    } else if (winners.includes(pokemonType2)) {
+      result = result.concat(`${pokemonName2}`);
     } else {
       result = result.concat(`both lose!`);
     }
@@ -99,7 +104,7 @@ export default function App() {
           <button id="battle" onClick={battlePokemon}>
             Battle!
           </button>
-          <span id="result"> </span>
+          <p id="result"> </p>
         </div>
       </div>
     </div>
