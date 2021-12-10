@@ -23,25 +23,23 @@ export default function App() {
   };
 
   return (
-    <div>
-      <div className={`background-${pokemonType.name}`}>
-        <p className="text">
-          Here is your pokemon{' '}
-          <em>
-            <b> {pokemon.name} </b>
-          </em>
-        </p>
-        <img
-          id="pokemonImg"
-          src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-          width="300"
-          height="300"
-        />
-        <span id="ability"> {pokemonType.name} </span>
-        <button id="clickMe" onClick={fetchPokemon}>
-          Click Me!
-        </button>
-      </div>
+    <div className={`background-${pokemonType.name}`}>
+      <p className="text">
+        Here is your pokemon{' '}
+        <em>
+          <b class="pokemonName"> {pokemon.name} </b>
+        </em>
+        of type {pokemonType.name}
+      </p>
+      <img
+        id="pokemonImg"
+        src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+        width="300"
+        height="300"
+      />
+      <button id="clickMe" onClick={fetchPokemon}>
+        Click Me!
+      </button>
     </div>
   );
 }
