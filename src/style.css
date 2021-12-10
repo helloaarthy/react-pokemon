@@ -7,11 +7,23 @@ p {
   text-align: center;
 }
 
-.pokemonName {
+.pokemonName1 {
   text-transform: capitalize;
 }
 
-#pokemonImg {
+.pokemonName2 {
+  text-transform: capitalize;
+}
+
+#pokemonImg1 {
+  border: 1px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#pokemonImg2 {
   border: 1px solid black;
   display: block;
   margin-left: auto;
@@ -27,7 +39,20 @@ p {
   margin-bottom: 15px;
 }
 
-#pokemonType {
+#battle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#pokemonType1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#pokemonType2 {
   margin-left: auto;
   margin-right: auto;
 }

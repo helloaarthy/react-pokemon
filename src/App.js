@@ -37,6 +37,24 @@ export default function App() {
       });
   };
 
+  const battlePokemon = () => {
+    const winners = ['dragon', 'steel', 'electric', 'fighting', 'poison'];
+    const result = document.createElement('p');
+    const pokemon1 =
+      document.querySelectorAll('.pokemonTypeName1')[0].innerHTML;
+    const pokemon2 =
+      document.querySelectorAll('.pokemonTypeName2')[0].innerHTML;
+    if (winners.includes(pokemon1 || pokemon2)) {
+      result.innerText = 'Results are a tie';
+    } else if (winners.includes(pokemon1)) {
+      result.innerText = `${pokemon1} defeated ${pokemon2}`;
+    } else if (winners.includes(pokemon2)) {
+      result.innerText = `${pokemon2} defeated ${pokemon1}`;
+    } else {
+      result.innerText = `Neither were winners!`;
+    }
+  };
+
   return (
     <div>
       <div className={`background-${pokemonType1.name}`}>
@@ -69,6 +87,9 @@ export default function App() {
           />
           <button id="clickMe" onClick={(fetchPokemon1, fetchPokemon2)}>
             Click Me!
+          </button>
+          <button id="battle" onClick={battlePokemon}>
+            Battle!
           </button>
         </div>
       </div>
