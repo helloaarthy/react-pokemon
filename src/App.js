@@ -39,20 +39,21 @@ export default function App() {
 
   const battlePokemon = () => {
     const winners = ['dragon', 'steel', 'electric', 'fighting', 'poison'];
-    const result = document.createElement('p');
+    const result = document.querySelectorAll('#result')[0].innerHTML;
     const pokemon1 =
       document.querySelectorAll('.pokemonTypeName1')[0].innerHTML;
     const pokemon2 =
       document.querySelectorAll('.pokemonTypeName2')[0].innerHTML;
     if (winners.includes(pokemon1 || pokemon2)) {
-      result.innerText = 'Results are a tie';
+      result.concat(`A tie!`);
     } else if (winners.includes(pokemon1)) {
-      result.innerText = `${pokemon1} defeated ${pokemon2}`;
+      result.concat(`${pokemon1}`);
     } else if (winners.includes(pokemon2)) {
-      result.innerText = `${pokemon2} defeated ${pokemon1}`;
+      result.concat(`${pokemon2}`);
     } else {
-      result.innerText = `Neither were winners!`;
+      result.concat(`Both lose!`);
     }
+    console.log(result);
   };
 
   return (
@@ -77,7 +78,7 @@ export default function App() {
             <em>
               <b className="pokemonName1"> {pokemon2.name} </b>
             </em>
-            of type <b className="pokemonTypeName1"> {pokemonType2.name} </b>
+            of type <b className="pokemonTypeName2"> {pokemonType2.name} </b>
           </p>
           <img
             id="pokemonImg1"
@@ -91,6 +92,7 @@ export default function App() {
           <button id="battle" onClick={battlePokemon}>
             Battle!
           </button>
+          <span id="result"> The result is </span>
         </div>
       </div>
     </div>
