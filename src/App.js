@@ -83,7 +83,7 @@ export default function App() {
           <p className="text">
             Here is your pokemon{' '}
             <em>
-              <b className="pokemonName1"> {pokemon2.name} </b>
+              <b className="pokemonName2"> {pokemon2.name} </b>
             </em>
             of type <b className="pokemonTypeName2"> {pokemonType2.name} </b>
           </p>
