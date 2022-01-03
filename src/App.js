@@ -9,32 +9,21 @@ export default function App() {
   const [pokemonType2, setPokemonType2] = useState(0);
 
   useEffect(() => {
-    fetchPokemon1();
-  }, []);
-
-  useEffect(() => {
-    fetchPokemon2();
+    fetchPokemon();
   }, []);
 
   const random1 = Math.floor(Math.random() * 721);
   const random2 = Math.floor(Math.random() * 721);
+  const promise1 = axios.get('https://pokeapi.co/api/v2/pokemon/' + random1);
+  const promise2 = axios.get('https://pokeapi.co/api/v2/pokemon/' + random2);
 
-  const fetchPokemon1 = () => {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon/' + random1)
-      .then((response) => {
-        setPokemon1(response.data);
-        setPokemonType1(response.data.types[0].type);
-      });
-  };
-
-  const fetchPokemon2 = () => {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon/' + random2)
-      .then((response) => {
-        setPokemon2(response.data);
-        setPokemonType2(response.data.types[0].type);
-      });
+  const fetchPokemon = () => {
+    Promise.all([promise1, promise2]).then((response) => {
+      setPokemon1(response[0].data);
+      setPokemonType1(response[0].data.types[0].type);
+      setPokemon2(response[1].data);
+      setPokemonType2(response[1].data.types[0].type);
+    });
   };
 
   const battlePokemon = () => {
@@ -85,6 +74,9 @@ export default function App() {
           width="300"
           height="300"
         />
+        <button id="clickMe1" onClick={fetchPokemon}>
+          Click Me!
+        </button>
         <div className={`background-${pokemonType2.name}`}>
           <p className="text">
             Here is your pokemon{' '}
@@ -99,9 +91,9 @@ export default function App() {
             width="300"
             height="300"
           />
-          <button id="clickMe" onClick={(fetchPokemon1, fetchPokemon2)}>
+          {/* <button id="clickMe2" onClick={fetchPokemon2}>
             Click Me!
-          </button>
+          </button> */}
           <button id="battle" onClick={battlePokemon}>
             Battle!
           </button>
